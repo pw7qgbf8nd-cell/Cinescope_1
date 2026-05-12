@@ -23,6 +23,16 @@ class UserApi(CustomRequester):
             expected_status=expected_status
         )
 
+    def create_user(self, user_data, expected_status=201):
+        return self.send_request(
+            method="POST",
+            endpoint="/user",
+            data=user_data,
+            expected_status=expected_status
+        )
+    def get_user(self, user_locator, expected_status):
+        return self.send_request("GET",f"/user/{user_locator}",expected_status=expected_status)
+
     def delete_user(self, user_id, expected_status=204):
         """
         Удаление пользователя.
