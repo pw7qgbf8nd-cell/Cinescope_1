@@ -5,6 +5,7 @@ import requests
 from constants import BASE_URL, Roles
 from custom_requester.custom_requester import CustomRequester
 from API.api_manager import ApiManager
+from models.base_models import TestUser
 from utils.data_generator import DataGenerator
 from resorses.user_creds import SuperAdminCreds
 from entities.user import User
@@ -12,15 +13,16 @@ from entities.user import User
 faker = Faker()
 
 @pytest.fixture
-def test_user():
+def test_user() -> TestUser:
     random_password = DataGenerator.generate_random_password()
-    return {
-        "email": DataGenerator.generate_random_mail(),
-        "fullName": DataGenerator.generate_random_name(),
-        "password": random_password,
-        "passwordRepeat": random_password,
-        "roles": ["USER"]
-    }
+
+    return TestUser(
+        email=DataGenerator.generate_random_mail(),
+        fullName=DataGenerator.generate_random_name(),
+        password=random_password,
+        passwordRepeat=random_password,
+        roles=[Roles.USER.value]
+    )
 
 @pytest.fixture(scope="session")
 def auth_admin(api_manager, creed_admin):
@@ -81,10 +83,9 @@ def patch_movie_data():
 
 @pytest.fixture
 def registered_user(api_manager, test_user):
-    response = api_manager.auth_api.register_user(test_user)
+    response = api_manager.auth_api.register_user(user_data=test_user.model_dump())
     response_data = response.json()
-    registered_user = test_user.copy()
-    registered_user["id"] = response_data["id"]
+    registered_user = test_user.model_copy(update={"id": response_data["id"]})
     return registered_user
 # изменена фикстура
 
@@ -181,21 +182,19 @@ def super_admin(user_session):
     return super_admin
 
 @pytest.fixture(scope="function")
-def creation_user_data(test_user):
-    updated_data = test_user.copy()
-    updated_data.update({
+def creation_user_data(test_user) -> TestUser:
+    return test_user.model_copy(update={
         "verified": True,
         "banned": False
     })
-    return updated_data
 
 @pytest.fixture
 def common_user(user_session, super_admin, creation_user_data):
     new_session = user_session()
 
     common_user = User(
-        creation_user_data["email"],
-        creation_user_data["password"],
+        creation_user_data.email,
+        creation_user_data.password,
         [Roles.USER.value],
         new_session)
 
@@ -203,3 +202,46 @@ def common_user(user_session, super_admin, creation_user_data):
     common_user.api.auth_api.authenticate(common_user.creds)
     return common_user
 
+@pytest.fixture
+def admin_user(user_session, super_admin, creation_user_data):
+    new_session = user_session()
+
+    admin_user = User(
+        creation_user_data.email,
+        creation_user_data.password,
+        [Roles.ADMIN.value],
+        new_session
+    )
+    super_admin.api.user_api.create_user(creation_user_data)
+    admin_user.api.auth_api.authenticate(admin_user.creds)
+    return admin_user
+
+@pytest.fixture
+def min_max_price():
+    return DataGenerator.generate_random_price()
+
+@pytest.fixture
+def location_msk_spb():
+    return DataGenerator.generate_location()
+
+@pytest.fixture
+def genre_id():
+    return DataGenerator.generate_genre_id()
+@pytest.fixture(params=[
+    {"genreId": genre_id},
+    {"locations": location_msk_spb},
+    {"minPrice": 100, "maxPrice": 1000}])
+def movie_filter(request):
+    return request.param
+
+@pytest.fixture
+def registration_user_data():
+    random_password = DataGenerator.generate_random_password()
+
+    return {
+        "email": DataGenerator.generate_random_mail(),
+        "fullName": DataGenerator.generate_random_name(),
+        "password": random_password,
+        "passwordRepeat": random_password,
+        "roles": [Roles.USER.value]
+    }

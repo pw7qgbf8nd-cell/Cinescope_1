@@ -69,3 +69,11 @@ class DataGenerator:
     def generate_movie_id_neg():
         random_id = random.randint(0, 300000)
         return random_id
+
+    @staticmethod
+    def generate_location():
+        random_number = random.randint(1,2)
+        if random_number == 1:
+            return "MSK"
+        elif random_number  == 2:
+            return "SPB"
