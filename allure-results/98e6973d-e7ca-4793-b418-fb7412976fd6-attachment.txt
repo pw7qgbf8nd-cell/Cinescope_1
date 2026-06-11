@@ -1,0 +1,23 @@
+2026-06-11 11:52:49 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_patch_movie_not_found (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}'
+2026-06-11 11:52:49 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_patch_movie_not_found[0m
+curl -X PATCH 'https://api.dev-cinescope.coconutqa.ru/movies/33963' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTY4LCJleHAiOjE3ODExNjk3Njh9.7i4tYC3-GW9E4JEyVCy7JaZgGgKPuVjsb3BAGNWaSQI' \
+-H 'Content-Length: 269' \
+-d '{"name": "Billy Clayton", "imageUrl": "https://image.url", "price": 100, "description": "\u0422\u0415\u0421\u0422\u0422\u0415\u0421\u0422\u0415\u0421\u0422\u0415\u0422\u0421\u0422\u0415\u0421\u0422\u0415\u0421\u0422", "location": "SPB", "published": true, "genreId": 1}' 
+
+2026-06-11 11:52:49 [32mINFO[0m 	RESPONSE:
+STATUS_CODE: [31m400[0m
+DATA: [31m{"message":"Некорректные данные","error":"Bad Request","statusCode":400}[0m

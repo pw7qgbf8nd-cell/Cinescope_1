@@ -1,0 +1,21 @@
+2026-06-11 11:52:47 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_get_poster_invalid_data (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}'
+2026-06-11 11:52:47 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_get_poster_invalid_data[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies?page=-1&pageSize=999999&genreId=invalid' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTY2LCJleHAiOjE3ODExNjk3NjZ9.UIeSatqeL2EqoE6AjPJECTBADvLd70kiULVf0zFZi9k' \
+
+2026-06-11 11:52:47 [32mINFO[0m 	RESPONSE:
+STATUS_CODE: [31m400[0m
+DATA: [31m{"message":["Поле pageSize имеет максимальную величину 20","Поле page имеет минимальную величину 1","Поле genreId имеет минимальную величину 1","Поле genreId должно быть целым числом","Поле genreId должно быть числом"],"error":"Bad Request","statusCode":400}[0m

@@ -1,0 +1,19 @@
+2026-06-11 11:52:12 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_create_movie (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}'
+2026-06-11 11:52:12 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_create_movie[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTMxLCJleHAiOjE3ODExNjk3MzF9.n92WgD8EgOoYH2nZ4YCh8px5bFIoUI2x1jqE5z9eBW8' \
+-H 'Content-Length: 328' \
+-d '{"name": "79967 \u0414\u043e\u043b\u043c\u0430\u0442\u0438\u043d\u0446\u0435\u0432", "imageUrl": "https://image.url", "price": 657, "description": "\u0422\u0415\u0421\u0422\u0422\u0415\u0421\u0422\u0415\u0421\u0422\u0415\u0422\u0421\u0422\u0415\u0421\u0422\u0415\u0421\u0422", "location": "SPB", "published": true, "genreId": 2}'

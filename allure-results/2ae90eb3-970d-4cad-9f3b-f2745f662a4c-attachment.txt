@@ -1,0 +1,17 @@
+2026-06-11 11:52:11 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_get_movies (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}'
+2026-06-11 11:52:11 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_get_movies[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies?genreId=3' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTMwLCJleHAiOjE3ODExNjk3MzB9.wid3Am4KNC4uj0EkLpbNqkkp5-KtoL4EE_AzjsNhuiw' \

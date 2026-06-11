@@ -1,6 +1,9 @@
 import random
 import string
 from faker import Faker
+from sqlalchemy import Column, String, Boolean, DateTime
+import datetime
+
 faker = Faker()
 
 class DataGenerator:
@@ -8,6 +11,11 @@ class DataGenerator:
     def generate_random_mail():
         random_string = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
         return f"ke{random_string}@gmail.com"
+
+    @staticmethod
+    def generate_random_int():
+        random_int = random.randint(1,10)
+        return random_int
 
     @staticmethod
     def generate_random_name():
@@ -77,3 +85,38 @@ class DataGenerator:
             return "MSK"
         elif random_number  == 2:
             return "SPB"
+
+    @staticmethod
+    def generate_user_data() -> dict:
+        """Генерирует данные для тестового пользователя"""
+        from uuid import uuid4
+
+        return {
+            'id': f'{uuid4()}',  # генерируем UUID как строку
+            'email': DataGenerator.generate_random_mail(),
+            'full_name': DataGenerator.generate_random_name(),
+            'password': DataGenerator.generate_random_password(),
+            'created_at': datetime.datetime.now(),
+            'updated_at': datetime.datetime.now(),
+            'verified': False,
+            'banned': False,
+            'roles': '{USER}'
+        }
+
+    @staticmethod
+    def generate_movie_data() -> dict:
+        """Генерирует данные для тестового фильма"""
+        from uuid import uuid4
+
+        return {
+            # 'id': f'{uuid4()}',
+            'name': DataGenerator.generate_random_movie_name(),
+            'price': DataGenerator.generate_random_price(),
+            'description': DataGenerator.generate_random_movie_name(),
+            'image_url': DataGenerator.generate_random_name(),
+            'location': DataGenerator.generate_location(),
+            'published': True,
+            'rating': DataGenerator.generate_genre_id(),
+            'genre_id': DataGenerator.generate_genre_id(),
+            'created_at': datetime.datetime.now()
+        }

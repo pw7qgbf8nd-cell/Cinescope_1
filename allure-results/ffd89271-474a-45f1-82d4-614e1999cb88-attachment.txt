@@ -1,0 +1,64 @@
+2026-06-11 11:52:19 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_delete_movies_parametr_roles[common_user_delete] (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTMyLCJleHAiOjE3ODExNjk3MzJ9.e3sExdWcCB7YYuX-VeY9Z32eap2roSjMEbYWHZGumh8' \
+-H 'Content-Length: 328' \
+-d '{"name": "88804 \u0414\u043e\u043b\u043c\u0430\u0442\u0438\u043d\u0446\u0435\u0432", "imageUrl": "https://image.url", "price": 731, "description": "\u0422\u0415\u0421\u0422\u0422\u0415\u0421\u0422\u0415\u0421\u0422\u0415\u0422\u0421\u0422\u0415\u0421\u0422\u0415\u0421\u0422", "location": "SPB", "published": true, "genreId": 4}'
+2026-06-11 11:52:20 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_delete_movies_parametr_roles[common_user_delete][0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-11 11:52:20 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_delete_movies_parametr_roles[common_user_delete][0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTM5LCJleHAiOjE3ODExNjk3Mzl9.49noSPXkYrbHLDKuSx3wsvOOLgHTy8RXPv4TeXqG5fk' \
+-H 'Cookie: refresh_token=d8d71c8f-84d4-404f-94e6-90fe0cef5bb8' \
+-H 'Content-Length: 171' \
+-d '{"email": "ke5e5asc9g@gmail.com", "fullName": "Jaime Harrison", "password": "h8:O&$EM", "passwordRepeat": "h8:O&$EM", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-11 11:52:20 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_delete_movies_parametr_roles[common_user_delete][0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 57' \
+-H 'Content-Type: application/json' \
+-d '{"email": "ke5e5asc9g@gmail.com", "password": "h8:O&$EM"}' 
+
+2026-06-11 11:52:20 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_delete_movies_parametr_roles[common_user_delete][0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/54645' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1YmVlODc5LTUwZDAtNDViNi1iYzM5LWY2Njg2MTc4Y2QwYSIsImVtYWlsIjoia2U1ZTVhc2M5Z0BnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIl0sInZlcmlmaWVkIjp0cnVlLCJpYXQiOjE3ODExNjc5MzksImV4cCI6MTc4MTE2OTczOX0.41iDk8am36hHN3jEWaYEnekGPsLlV9kNx77FoPNVi8o' \
+-H 'Content-Length: 0' \
+
+2026-06-11 11:52:20 [32mINFO[0m 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m{"message":"Forbidden resource","error":"Forbidden","statusCode":403}[0m
+2026-06-11 11:52:21 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_delete_movies_parametr_roles[common_user_delete] (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/54645' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTMyLCJleHAiOjE3ODExNjk3MzJ9.e3sExdWcCB7YYuX-VeY9Z32eap2roSjMEbYWHZGumh8' \
+-H 'Content-Length: 0' \

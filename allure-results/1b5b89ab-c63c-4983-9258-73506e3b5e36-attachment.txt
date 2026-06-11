@@ -1,0 +1,45 @@
+2026-06-11 11:52:50 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_post_movie_403_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-11 11:52:50 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_post_movie_403_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTY5LCJleHAiOjE3ODExNjk3Njl9.S1DJoDkh1N472i8gG6l-t7RCGLxSqpj3yaiZETPwVOw' \
+-H 'Cookie: refresh_token=80f5a200-7338-4a6b-a6f7-d629d0eb4b3b' \
+-H 'Content-Length: 176' \
+-d '{"email": "keh1ahdcrd@gmail.com", "fullName": "Justin Greene", "password": "M0kk3nqn7m*", "passwordRepeat": "M0kk3nqn7m*", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-11 11:52:50 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_post_movie_403_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 60' \
+-H 'Content-Type: application/json' \
+-d '{"email": "keh1ahdcrd@gmail.com", "password": "M0kk3nqn7m*"}'
+2026-06-11 11:52:51 [32mINFO[0m [32mpytest tests/API/Negative/test_api_movies.py::TestNegMovies::test_post_movie_403_common_user[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU1ZjA2ZmVhLWMyMmQtNDhjYy05ZGIzLTZmNjNiNzM4NmI5MCIsImVtYWlsIjoia2VoMWFoZGNyZEBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIl0sInZlcmlmaWVkIjp0cnVlLCJpYXQiOjE3ODExNjc5NzAsImV4cCI6MTc4MTE2OTc3MH0.dD27mVupr61nWjVhWKK7ZzwLuSC_W8cNzFqa_03BLI8' \
+-H 'Content-Length: 328' \
+-d '{"name": "79225 \u0414\u043e\u043b\u043c\u0430\u0442\u0438\u043d\u0446\u0435\u0432", "imageUrl": "https://image.url", "price": 471, "description": "\u0422\u0415\u0421\u0422\u0422\u0415\u0421\u0422\u0415\u0421\u0422\u0415\u0422\u0421\u0422\u0415\u0421\u0422\u0415\u0421\u0422", "location": "SPB", "published": true, "genreId": 8}' 
+
+2026-06-11 11:52:51 [32mINFO[0m 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m{"message":"Forbidden resource","error":"Forbidden","statusCode":403}[0m

@@ -1,0 +1,39 @@
+2026-06-11 11:52:16 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_get_movies_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 53' \
+-H 'Content-Type: application/json' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-11 11:52:16 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_get_movies_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxMTY3OTM1LCJleHAiOjE3ODExNjk3MzV9.yvMNTPnXNQOnWrHH3X3Bm2gd-rv0gAGelCfFUZ_K5XI' \
+-H 'Cookie: refresh_token=5ffe7bd4-eab7-4c34-9883-d9c4f99c77b1' \
+-H 'Content-Length: 182' \
+-d '{"email": "keuxc8y0z4@gmail.com", "fullName": "Cory Hall", "password": "hrZSpQ&K7Yt4pHT:", "passwordRepeat": "hrZSpQ&K7Yt4pHT:", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-11 11:52:17 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_get_movies_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Content-Length: 65' \
+-H 'Content-Type: application/json' \
+-d '{"email": "keuxc8y0z4@gmail.com", "password": "hrZSpQ&K7Yt4pHT:"}'
+2026-06-11 11:52:17 [32mINFO[0m [32mpytest tests/API/Positive/test_api_movies_positive.py::TestMovies::test_get_movies_common_user[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies?genreId=3' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA0MmYyZjRlLTU0ZDUtNGJjOS05YmI4LTRmYTc0NjMxYzM2MiIsImVtYWlsIjoia2V1eGM4eTB6NEBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIl0sInZlcmlmaWVkIjp0cnVlLCJpYXQiOjE3ODExNjc5MzYsImV4cCI6MTc4MTE2OTczNn0.CI4ZW05jSNxlJW8-xddwEE-tbTWZXL8RkgeJiv94SQI' \
