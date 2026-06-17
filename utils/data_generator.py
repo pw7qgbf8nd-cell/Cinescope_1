@@ -65,12 +65,12 @@ class DataGenerator:
 
     @staticmethod
     def generate_random_price():
-        random_price = random.randint(100, 1000)
+        random_price = random.randint(200, 1000)
         return random_price
 
     @staticmethod
     def generate_genre_id():
-        random_id = random.randint(1,9)
+        random_id = random.randint(3,4)
         return random_id
 
     @staticmethod

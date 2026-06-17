@@ -1,6 +1,6 @@
 import pytest
 from API.api_manager import ApiManager
-from models.base_models import RegisterUserResponse
+from models.test_user_models import RegisterUserResponse
 
 class TestAuthAPI:
     def test_register_user(self, api_manager, test_user):

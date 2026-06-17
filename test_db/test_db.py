@@ -5,7 +5,7 @@ import requests
 from constants import BASE_URL, Roles
 from custom_requester.custom_requester import CustomRequester
 from API.api_manager import ApiManager
-from models.base_models import TestUser
+from models.test_user_models import TestUser
 from utils.data_generator import DataGenerator
 from resorses.user_creds import SuperAdminCreds
 from entities.user import User

@@ -38,10 +38,11 @@ class TestNegMovies:
     @pytest.mark.api
     def test_patch_movie_not_found(self, api_manager,neg_movie_data,super_admin, neg_movie_id, creed_admin):
         with allure.step("Шаг 1: Проверка ответа"):
-                super_admin.api.movies_api.patch_movie(neg_movie_data, neg_movie_id, expected_status=400)
+                super_admin.api.movies_api.patch_movie(neg_movie_data, neg_movie_id, expected_status=404)
 # Изменены все тесты
     @allure.step("Отправляем POST (попытка создания фильма при отсутствии прав на создание)/movies")
     @pytest.mark.slow
+    @pytest.mark.api
     def test_post_movie_403_common_user(self, api_manager, common_user, movie_data):
         with allure.step("Шаг 1: Проверка ответа"):
             common_user.api.movies_api.post_movie(movie_data, expected_status=403)

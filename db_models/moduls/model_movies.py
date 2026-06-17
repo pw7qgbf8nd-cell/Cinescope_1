@@ -8,16 +8,16 @@ Base = declarative_base()
 class MovieDBModel(Base):
     __tablename__ = 'movies'
 
-    id = Column(INTEGER, primary_key=True, autoincrement=True)  # text в БД
-    name = Column(String)  # text в БД
-    price = Column(Float)  # text в БД
-    description = Column(String)  # timestamp в БД
-    image_url = Column(String)  # timestamp в БД
-    location = Column(String)  # bool в БД
-    published = Column(Boolean)  # bool в БД
-    rating = Column(Float)
-    genre_id = Column(String)
-    created_at = Column(DateTime)# text в БД (Role enum)
+    id = Column(INTEGER, primary_key=True, autoincrement=True)
+    name = Column(String)
+    price = Column(INTEGER)
+    description = Column(String)
+    image_url = Column(String)
+    location = Column(String)
+    published = Column(Boolean)
+    rating = Column(INTEGER)
+    genre_id = Column(INTEGER)
+    created_at = Column(DateTime)
 
     def to_dict(self) -> Dict[str, Any]:
         """Преобразование в словарь"""

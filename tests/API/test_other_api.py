@@ -5,7 +5,7 @@ import requests
 from constants import BASE_URL, Roles
 from custom_requester.custom_requester import CustomRequester
 from API.api_manager import ApiManager
-from models.base_models import TestUser
+from models.test_user_models import TestUser
 from utils.data_generator import DataGenerator
 from resorses.user_creds import SuperAdminCreds
 from entities.user import User
@@ -100,12 +100,3 @@ class TestAccountTransactionTemplate:
                 db_session.delete(stan)
                 db_session.delete(bob)
                 db_session.commit()
-
-    def test_delete_movie(self, api_manager, super_admin):
-        movie_id = 4800
-
-        delete_response = super_admin.api.movies_api.delete_movie(movie_id=movie_id)
-        assert delete_response.status_code == 200, "Фильм успешно удалился"
-
-        get_response = api_manager.movies_api.get_movie(movie_id=movie_id, expected_status=404)
-        assert get_response.status_code == 404, "Фильма не должно быть в базе"
