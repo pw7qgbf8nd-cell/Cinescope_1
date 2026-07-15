@@ -31,3 +31,7 @@ class DataGenerator:
     @staticmethod
     def generate_random_name():
         return f"{faker.first_name()} {faker.last_name()}"
+
+    @staticmethod
+    def generate_random_feedback():
+        return f"{faker.word()}{faker.word()}"

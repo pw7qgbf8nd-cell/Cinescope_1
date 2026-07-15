@@ -6,6 +6,7 @@ import pytest
 from playwright.sync_api import sync_playwright
 from types import SimpleNamespace
 import pytest
+from utils import DataGenerator
 
 DEFAULT_UI_TIMEOUT = 30000
 
@@ -13,7 +14,15 @@ DEFAULT_UI_TIMEOUT = 30000
 def registered_user():
     return SimpleNamespace(
         email="test223@email.qa",
-        password="OLEG_AQA25"
+        password="OLEG_AQA25",
+        feedback=DataGenerator.generate_random_feedback()
+    )
+@pytest.fixture(scope="function")
+def new_user():
+    return SimpleNamespace(
+        email=DataGenerator.generate_random_email(),
+        password=DataGenerator.generate_random_password(),
+        full_name=DataGenerator.generate_random_name()
     )
 
 
