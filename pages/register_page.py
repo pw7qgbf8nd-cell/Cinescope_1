@@ -13,10 +13,10 @@ class CinescopRegisterPage(BasePage):
         self.password_input = "input[name='password']"
         self.repeat_password_input = "input[name='passwordRepeat']"
         self.register_button = "button[data-qa-id='register_submit_button']"
-        self.sign_button = "a[href='/login' and text()='Войти']"
     def open(self):
         self.open_url(self.url)
 
+    @allure.step("Автозаполнение формы регистрации и нажатие кнопки 'зарегестрироваться'")
     def register(self, full_name: str, email: str, password: str, confirm_password: str):
         self.enter_text_to_element(self.full_name_input, full_name)
         self.enter_text_to_element(self.email_input, email)
@@ -24,8 +24,10 @@ class CinescopRegisterPage(BasePage):
         self.enter_text_to_element(self.repeat_password_input, confirm_password)
         self.click_element(self.register_button)
 
+    @allure.step("Проверка перехода на страницу авторизации")
     def assert_was_redirect_to_login_page(self):
         self.wait_redirect_for_url(f"{self.home_url}login")
 
+    @allure.step(" POP UP окно с уведомлением")
     def assert_allert_was_pop_up(self):
         self.check_pop_up_element_with_text("Подтвердите свою почту")

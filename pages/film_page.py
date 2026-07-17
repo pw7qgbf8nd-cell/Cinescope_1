@@ -8,8 +8,6 @@ class CinescopFilmPage(BasePage):
         self.feedback_input = "[data-qa-id='movie_review_input']"
         self.accept_feedback_button = "button[data-qa-id='movie_review_submit_button']"
         self.actions_with_review = "button[data-qa-id='movie_review_actions_button']"
-        self.written_review_locator = "xpath=/html/body/div[2]/main/div/div/div/div/div[2]/p"
-
 
     @allure.step("Написание отзыва и его публикация")
     def write_and_confirm_feedback(self, feedback: str):
@@ -26,8 +24,8 @@ class CinescopFilmPage(BasePage):
     def assert_allert_was_pop_up_feedback(self):
         self.check_pop_up_element_with_text("Отзыв успешно создан")
 
+    @allure.step("Проверка, что написанный и опубликованный отзывы равны")
     def assert_review_was_published_and_equal_written(self, feedback: str):
-        review_element = self.page.locator(self.written_review_locator)
-        actual_text = review_element.text_content()
-        with allure.step("Проверка совдания написанного и опубликованного"):
-            assert feedback in  actual_text, "Отзывы не совпадают"
+        review_element = self.page.locator(f'p:has-text("{feedback}")')
+        expect(review_element).to_contain_text(feedback)
+

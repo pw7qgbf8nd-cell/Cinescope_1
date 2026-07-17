@@ -11,7 +11,7 @@ class CinescopLoginPage(BasePage):
         self.email_input = "input[name='email']"
         self.password_input = "input[name='password']"
         self.login_button = "button[data-qa-id='login_submit_button']"
-        self.register_button = "a[href='/register' and text()='Зарегистрироваться']"
+
 
     def open(self):
         self.open_url(self.url)

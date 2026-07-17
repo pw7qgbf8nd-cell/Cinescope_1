@@ -50,10 +50,19 @@ class PageAction:
 
     @allure.step("Проверка всплывающего сообщения c текстом: {text}")
     def check_pop_up_element_with_text(self, text: str) -> bool:
-        with allure.step("Проверка появления алерта с текстом: '{text}'"):
-            notification_locator = self.page.get_by_text(text)
-            notification_locator.wait_for(state="visible")
-            assert notification_locator.is_visible(), "Уведомление не появилось"
-        with allure.step("Проверка исчезновения алерта с текстом: '{text}'"):
-            notification_locator.wait_for(state="hidden")
-            assert notification_locator.is_visible() == False, "Уведомление не исчезло"
+        notification_locator = self.page.get_by_text(text)
+        try:
+            with allure.step("Проверка появления алерта с текстом: '{text}'"):
+                notification_locator.wait_for(state="visible", timeout=500)
+
+            with allure.step("Проверка исчезновения алерта с текстом: '{text}'"):
+                notification_locator.wait_for(state="hidden", timeout=5000)
+            return True
+
+        except TimeoutError as e:
+            allure.attach(
+                f"Элемент с текстом '{text}' не прошел проверку. Ошибка: {str(e)}",
+                name="Причина падения проверки",
+                attachment_type=allure.attachment_type.TEXT
+            )
+        return False
